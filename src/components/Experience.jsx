@@ -16,23 +16,34 @@ const ExperienceCard = ({ experience }) => (
     date={experience.date}
     iconStyle={{ background: experience.iconBg }}
     icon={
-      <div className="flex justify-center items-center w-full h-full">
-        <img
-          src={experience.icon}
-          alt={experience.company_name}
-          className="w-[60%] h-[60%] object-contain"
-        />
-      </div>
+      <motion.div
+        className="flex justify-center items-center w-full h-full"
+        whileHover={{ scale: 1.1 }}
+      >
+        <a
+          href={experience.company_link}
+          className="flex justify-center items-center"
+        >
+          <img
+            src={experience.icon}
+            alt={experience.company_name}
+            className="w-[60%] h-[60%] object-cover"
+          />
+        </a>
+      </motion.div>
     }
   >
     <div>
       <h3 className="text-white text-[24px] font-bold">{experience.title}</h3>
-      <p
-        className="text-secondary text-[16px] font-semibold"
-        style={{ margin: 0 }}
-      >
-        {experience.company_name}
-      </p>
+      <motion.div whileHover={{ y: -3, scale: 1.01 }}>
+        <a
+          href={experience.company_link}
+          className="text-secondary text-[16px] font-semibold"
+          style={{ margin: 0 }}
+        >
+          {experience.company_name}
+        </a>
+      </motion.div>
     </div>
     <ul className="mt-5 list-disc ml-5 space-y-2">
       {experience.points.map((point, index) => (
