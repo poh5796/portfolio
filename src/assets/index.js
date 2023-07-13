@@ -15,11 +15,14 @@ import html from "./tech/html.png";
 import javascript from "./tech/javascript.png";
 import mongodb from "./tech/mongodb.png";
 import nodejs from "./tech/nodejs.png";
-import reactjs from "./tech/reactjs.png";
+import react from "./tech/react.png";
 import redux from "./tech/redux.png";
 import tailwind from "./tech/tailwind.png";
 import typescript from "./tech/typescript.png";
 import threejs from "./tech/threejs.svg";
+import postgresql from "./tech/postgresql.png";
+import bootstrap from "./tech/bootstrap.png";
+import rubyonrails from "./tech/rubyonrails.png";
 
 import meta from "./company/meta.png";
 import shopify from "./company/shopify.png";
@@ -49,7 +52,7 @@ export {
   javascript,
   mongodb,
   nodejs,
-  reactjs,
+  react,
   redux,
   tailwind,
   typescript,
@@ -59,6 +62,9 @@ export {
   starbucks,
   sws,
   esolution,
+  bootstrap,
+  postgresql,
+  rubyonrails,
   tesla,
   carrent,
   jobit,

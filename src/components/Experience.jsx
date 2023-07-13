@@ -35,10 +35,10 @@ const ExperienceCard = ({ experience }) => (
   >
     <div>
       <h3 className="text-white text-[24px] font-bold">{experience.title}</h3>
-      <motion.div whileHover={{ y: -3, scale: 1.01 }}>
+      <motion.div whileHover={{ y: -2 }}>
         <a
           href={experience.company_link}
-          className="text-secondary text-[16px] font-semibold"
+          className="text-secondary text-[16px] font-semibold hover:text-gray-300"
           style={{ margin: 0 }}
         >
           {experience.company_name}
