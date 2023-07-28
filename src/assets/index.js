@@ -23,6 +23,8 @@ import threejs from "./tech/threejs.svg";
 import postgresql from "./tech/postgresql.png";
 import bootstrap from "./tech/bootstrap.png";
 import rubyonrails from "./tech/rubyonrails.png";
+import angular from "./tech/angular.png";
+import nextjs from "./tech/nextjs.png";
 
 import meta from "./company/meta.png";
 import shopify from "./company/shopify.png";
@@ -65,6 +67,8 @@ export {
   bootstrap,
   postgresql,
   rubyonrails,
+  angular,
+  nextjs,
   tesla,
   carrent,
   jobit,

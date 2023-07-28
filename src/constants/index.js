@@ -28,6 +28,8 @@ import {
   rubyonrails,
   postgresql,
   bootstrap,
+  angular,
+  nextjs,
 } from "../assets";
 
 export const navLinks = [
@@ -51,11 +53,11 @@ const services = [
     icon: web,
   },
   {
-    title: "React Native Developer",
+    title: "React Developer",
     icon: mobile,
   },
   {
-    title: "Backend Developer",
+    title: "UX Designer",
     icon: backend,
   },
   // {
@@ -129,6 +131,14 @@ const technologies = [
     name: "Ruby on Rails",
     icon: rubyonrails,
   },
+  {
+    name: "Angular",
+    icon: angular,
+  },
+  {
+    name: "Next.js",
+    icon: nextjs,
+  },
 ];
 
 const experiences = [
@@ -138,12 +148,14 @@ const experiences = [
     company_link: "https://www.swstechno.com",
     icon: sws,
     iconBg: "#383E56",
-    date: "Sept 2022 - March 2023",
+    date: "September 2022 - March 2023",
     points: [
-      "Developing and maintaining web applications using React.js and other related technologies.",
-      "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
-      "Implementing responsive design and ensuring cross-browser compatibility.",
-      "Participating in code reviews and providing constructive feedback to other developers.",
+      "Designed and built an entire mobile-repsonsive e-obituary Single Page Application in Angular and Ionic that allows users to create highly-customizable digital obituaries based on users' cultures and religions.",
+      "Developed main features including: JWT user authentication, funeral service management, e-obituary generation, e-commerce system, payment gateway (iPay88, PayPal) and i18n multi-language support.",
+      "Closely collaborated with a small team for the integration of RESTful backend service API and discussions of user requirements documentation in sprint cycles.",
+      "Implemented Deep Nostalgia, an AI service that turns portrait photos into animated image as one of the USP.",
+      "Performed user acceptance testing with the stakeholders and quickly resolve issues raised in a limited timeframe.",
+      "Supported debugging before the production stage while reviewing codebase to improve Web Vitals performance.",
     ],
   },
   {
@@ -154,10 +166,10 @@ const experiences = [
     iconBg: "#E6DEDD",
     date: "March 2021 - August 2021",
     points: [
-      "Developing and maintaining web applications using React.js and other related technologies.",
-      "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
-      "Implementing responsive design and ensuring cross-browser compatibility.",
-      "Participating in code reviews and providing constructive feedback to other developers.",
+      "Developed features for the company's ERP system in Ruby on Rails and SQL, specializing in generating business documents by enabling customized format document printing, streamlining internal management processes for various local industries.",
+      "Conducted QA process such as API testing using Postman and technical documentation in the development of a mobile application to ensure seamless integration and functionality between web and mobile platform.",
+      "Created user manuals (written documents and instructional videos) to guide clients in effectively using the company's applications.",
+      "Assisted in guiding newly hired working partner",
     ],
   },
 ];
@@ -193,7 +205,7 @@ const projects = [
   {
     name: "E-Obituary",
     description:
-      "Mobile responsive web app that allows users to create highly customizable obituaries, purchase condolence gifts, manage funerals' schedules and visitors, upload their memories of their late loved ones, ",
+      "A mobile responsive web app that allows users to create highly customizable obituaries, purchase condolence gifts, manage funerals' schedules and visitors, upload their memories of their late loved ones. ",
     tags: [
       {
         name: "angular",
@@ -214,7 +226,7 @@ const projects = [
   {
     name: "Pure Nature Learning",
     description:
-      "Static Web application that enables users to search for job openings, view estimated salary ranges for positions, and locate available jobs based on their current location.",
+      "A brochure website for an education startup to promote its philosophy in nature learning and further connect the parents ",
     tags: [
       {
         name: "react",
@@ -235,18 +247,18 @@ const projects = [
   {
     name: "Pest Categorization App",
     description:
-      "A comprehensive travel booking platform that allows users to book flights, hotels, and rental cars, and offers curated recommendations for popular destinations.",
+      "A simple mobile application based on an AI model, MobileNet-v2 microtuned to classify species of pest images taken from device camera under 10 seconds. The app is operated locally without internet to protect users' privacy.",
     tags: [
       {
-        name: "nextjs",
+        name: "python",
         color: "blue-text-gradient",
       },
       {
-        name: "supabase",
+        name: "reactnative",
         color: "green-text-gradient",
       },
       {
-        name: "css",
+        name: "tensorflowjs",
         color: "pink-text-gradient",
       },
     ],

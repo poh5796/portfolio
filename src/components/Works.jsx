@@ -22,13 +22,13 @@ const ProjectCard = ({
           scale: 1,
           speed: 450,
         }}
-        className="bg-tertiary p-5 rounded-2xl sm:w-[360px] w-full"
+        className="bg-tertiary rounded-lg sm:w-[360px] w-full"
       >
         <div className="relative w-full h-[230px]">
           <img
             src={image}
             alt={name}
-            className="w-full h-full object-cover rounded-2xl"
+            className="w-full h-full object-cover rounded-t-lg"
           />
           <div className="absolute inset-0 flex justify-end m-3 card-img_hover">
             <div
@@ -44,12 +44,14 @@ const ProjectCard = ({
           </div>
         </div>
 
-        <div className="mt-5">
+        <div className="p-4">
           <h3 className="text-white font-bold text-[24px]">{name}</h3>
-          <p className="mt-2 text-secondary text-[14px]">{description}</p>
+          <p className="mt-2 text-secondary text-[14px] text-justify">
+            {description}
+          </p>
         </div>
 
-        <div className="mt-4 flex flex-wrap gap-2">
+        <div className="p-4 flex flex-wrap gap-2">
           {tags.map((tag) => (
             <p key={tag.name} className={`text-[14px] ${tag.color}`}>
               #{tag.name}
@@ -72,11 +74,10 @@ const Works = () => {
       <div className="w-full flex">
         <motion.p
           variants={fadeIn("", "", 0.1, 1)}
-          className="mt-3 text-secondary text-[17px] max-w-3xl leading-[30px]"
+          className="mt-3 text-secondary text-[17px] max-w-3xl leading-[30px] text-justify"
         >
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sequi quo
-          sint eaque fugiat magni vero ratione, repellat nostrum placeat vitae
-          inventore sed nam expedita explicabo ad eius veniam sapiente est!
+          These are some of the works I have done since my time at university,
+          feel free to take a look and tell me what you think about it!
         </motion.p>
       </div>
 

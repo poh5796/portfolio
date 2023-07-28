@@ -36,18 +36,17 @@ const About = () => {
       </motion.div>
       <motion.p
         variants={fadeIn("", "", 0.1, 1)}
-        className="mt-4 text-secondary text-[17px] max-w-3xl leading-[30px]"
+        className="mt-4 text-secondary text-[17px] max-w-3xl leading-[30px] text-justify"
       >
-        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Neque iste
-        ducimus architecto, explicabo hic impedit illum, tempora excepturi eaque
-        nihil quam, tenetur asperiores dolores. Beatae, quo repellat. Atque,
-        velit fugit. Lorem ipsum dolor sit amet consectetur adipisicing elit. At
-        hic excepturi cupiditate, ut fugit facere delectus iusto alias, velit
-        adipisci corporis sequi accusamus odio eligendi, sit porro possimus.
-        Dolor, quisquam.
+        I'm a recent computer science graduate with a passion for software
+        development and problem-solving. Strive to acquire strong programming
+        skills, practical experience, and a drive to learn and stay updated with
+        industry trends. Eager to contribute to real-world projects, I'm poised
+        to make a positive impact and grow professionally in my software
+        development career.
       </motion.p>
 
-      <div className="mt-20 flex flex-wrap gap-10">
+      <div className="mt-20 flex flex-wrap gap-8 justify-center">
         {services.map((service, index) => (
           <ServiceCard key={service.title} index={index} {...service} />
         ))}
