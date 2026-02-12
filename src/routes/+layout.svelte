@@ -17,7 +17,7 @@
   pt-20 adds padding-top so content isn't hidden behind the fixed Navbar.
   min-h-screen ensures footer stays at bottom on short pages.
 -->
-<main class="pt-20 min-h-screen flex flex-col">
+<main class="pt-20 min-h-screen flex flex-col bg-white dark:bg-gray-950 text-gray-900 dark:text-gray-100 transition-colors duration-300">
   {@render children()}
 </main>
 
