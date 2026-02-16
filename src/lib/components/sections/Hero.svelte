@@ -1,7 +1,7 @@
 <section id="hero" class="min-h-[80vh] flex flex-col justify-center items-center px-4 text-center">
   <div class="max-w-4xl space-y-6">
     <h1 class="text-6xl md:text-8xl font-black tracking-tighter leading-tight">
-      FULL STACK <br />
+      FULLSTACK <br />
       ENGINEERING
     </h1>
 

@@ -39,12 +39,21 @@
       </div>
 
       {#each EXPERIENCE as job, i}
+        {@const slug = job.company.toLowerCase().includes('airasia') ? 'airasia' : job.company.toLowerCase().includes('synorex') ? 'synorex' : job.company.toLowerCase().includes('sws') ? 'sws-it' : ''}
         <div class="relative pl-4 border-l-2 border-gray-200 dark:border-gray-700 ml-2">
           <!-- Job Header: Company & Role -->
           <div class="mb-2">
             <span class="text-purple-600 dark:text-purple-400 font-bold">COMMIT {EXPERIENCE.length - i}</span>
             <span class="text-gray-400 dark:text-gray-500 mx-2">|</span>
-            <span class="text-yellow-600 dark:text-yellow-300 font-bold">{job.company}</span>
+
+            {#if slug}
+              <a href={`/projects/${slug}`} class="text-yellow-600 dark:text-yellow-300 font-bold hover:underline hover:text-yellow-500 transition-colors">
+                {job.company}
+              </a>
+            {:else}
+              <span class="text-yellow-600 dark:text-yellow-300 font-bold">{job.company}</span>
+            {/if}
+
             <span class="text-gray-400 dark:text-gray-500 mx-2">-></span>
             <span class="text-gray-800 dark:text-gray-300">{job.role}</span>
             <span class="text-gray-500 text-xs block sm:inline sm:ml-4">({job.period})</span>
@@ -58,13 +67,20 @@
           </div>
 
           <!-- Description Logs -->
-          <div class="space-y-1 mb-4">
+          <div class="grid grid-cols-[max-content_1fr] gap-x-3 gap-y-1 mb-4">
             {#each job.description as desc}
               {@const { prefix, color } = getCommitPrefix(desc)}
-              <div class="flex items-start">
-                <span class={`${color} font-bold mr-2 w-20 flex-shrink-0 text-right`}>{prefix}</span>
-                <span class="text-gray-700 dark:text-gray-300">{desc}</span>
-              </div>
+
+              <!-- 2. The Prefix (Column 1) -->
+              <!-- Removed w-max, shrink-0, min-w-20. The Grid handles the width now. -->
+              <span class={`${color} font-bold text-right`}>
+                {prefix}
+              </span>
+
+              <!-- 3. The Description (Column 2) -->
+              <span class="text-gray-700 dark:text-gray-300">
+                {desc}
+              </span>
             {/each}
           </div>
 

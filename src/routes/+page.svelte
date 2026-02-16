@@ -8,10 +8,11 @@
 
 <Hero />
 
-<div class="max-w-7xl mx-auto px-4 grid grid-cols-1 lg:grid-cols-2 gap-8 my-16">
-  <div class="sticky top-20 self-start h-[600px]">
+<!-- <div class="max-w-7xl mx-auto px-4 grid grid-cols-1 lg:grid-cols-2 gap-8 my-16"> -->
+<div class="max-w-7xl mx-auto px-4 gap-8 my-16">
+  <!-- <div class="sticky top-20 self-start h-[600px]">
     <NetworkVisualizer />
-  </div>
+  </div> -->
   <div>
     <ExperienceLog />
   </div>
