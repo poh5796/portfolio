@@ -1,6 +1,5 @@
 <script lang="ts">
   import { learnings } from '$lib/data/learnings';
-  import type { LearningLog } from '$lib/data/learnings';
 
   let searchTerm = '';
   let currentPage = 1;

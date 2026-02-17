@@ -1,4 +1,4 @@
-export interface LearningLog {
+export interface Learning {
   id: string;
   title: string;
   date: string;
@@ -8,7 +8,7 @@ export interface LearningLog {
   content: string; // Markdown content
 }
 
-export const learnings: LearningLog[] = [
+export const learnings: Learning[] = [
   {
     id: '1',
     title: 'Understanding Svelte Stores',
