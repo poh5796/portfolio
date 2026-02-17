@@ -10,7 +10,7 @@
   // In my data structure `reflections` is per project item.
 </script>
 
-<div class="min-h-screen pb-20">
+<div class="pb-20">
   {#if company}
     <!-- Header -->
     <div class="bg-gradient-to-r from-gray-900 via-blue-900 to-gray-900 text-white py-20 px-4 mb-12">

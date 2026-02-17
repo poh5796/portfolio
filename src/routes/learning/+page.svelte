@@ -25,7 +25,7 @@
   }
 </script>
 
-<div class="max-w-4xl mx-auto py-12 min-h-screen">
+<div class="max-w-4xl mx-auto px-4 sm:px-6 py-12">
   <div class="mb-12">
     <h1 class="text-4xl font-bold mb-4 text-gray-900 dark:text-white">Learning</h1>
     <p class="text-xl text-gray-600 dark:text-gray-400">A collection of things I've learned along the way.</p>

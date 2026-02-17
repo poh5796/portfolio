@@ -6,7 +6,7 @@
   $: log = learnings.find(l => l.slug === slug);
 </script>
 
-<div class="max-w-3xl mx-auto px-6 py-12 pt-24 min-h-screen">
+<div class="max-w-3xl mx-auto px-4 sm:px-6 py-12">
   {#if log}
     <article>
       <header class="mb-8">
