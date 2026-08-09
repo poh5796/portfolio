@@ -7,8 +7,67 @@ import {
   technical,
 } from './data'
 
+const MARK_TONES = [
+  'yellow',
+  'coral',
+  'cyan',
+  'lime',
+  'pink',
+  'violet',
+  'orange',
+  'mint',
+  'sky',
+  'punch',
+]
+
 function Stamp({ children, className = '' }) {
   return <span className={`stamp ${className}`}>{children}</span>
+}
+
+function Mark({ children, tone = 'yellow', tilt = 0 }) {
+  return (
+    <strong
+      className={`mark mark-${tone}${tilt ? ` tilt-${tilt}` : ''}`}
+    >
+      {children}
+    </strong>
+  )
+}
+
+function RichText({ text, start = 0 }) {
+  const parts = String(text).split(/(\*\*[^*]+\*\*)/g)
+  let markIndex = start
+
+  return parts.map((part, index) => {
+    if (part.startsWith('**') && part.endsWith('**')) {
+      const tone = MARK_TONES[markIndex % MARK_TONES.length]
+      const tilt = (markIndex % 5) - 2
+      markIndex += 1
+      return (
+        <Mark key={`${part}-${index}`} tone={tone} tilt={tilt}>
+          {part.slice(2, -2)}
+        </Mark>
+      )
+    }
+
+    return <span key={`${part}-${index}`}>{part}</span>
+  })
+}
+
+function BrandName({ name }) {
+  const tones = ['coral', 'yellow', 'cyan']
+  return (
+    <h1 className="brand" aria-label={name}>
+      {name.split(' ').map((word, index) => (
+        <span
+          key={word}
+          className={`brand-word mark mark-${tones[index % tones.length]}`}
+        >
+          {word}
+        </span>
+      ))}
+    </h1>
+  )
 }
 
 export default function App() {
@@ -21,11 +80,22 @@ export default function App() {
           <div className="hero-copy">
             <p className="eyebrow">
               <Stamp className="stamp-yellow">Resume</Stamp>
-              Software · Cloud · Platforms
+              <Mark tone="cyan" tilt={-1}>
+                Software
+              </Mark>
+              <Mark tone="lime" tilt={1}>
+                Cloud
+              </Mark>
+              <Mark tone="pink" tilt={-2}>
+                Platforms
+              </Mark>
             </p>
-            <h1 className="brand">{profile.name}</h1>
+
+            <BrandName name={profile.name} />
             <p className="role">{profile.title}</p>
-            <p className="tagline">{profile.tagline}</p>
+            <p className="tagline">
+              <RichText text={profile.tagline} />
+            </p>
 
             <div className="cta-row">
               <a className="btn btn-primary" href={`mailto:${profile.email}`}>
@@ -37,10 +107,10 @@ export default function App() {
             </div>
 
             <nav className="link-row" aria-label="Social links">
-              {profile.links.map((link) => (
+              {profile.links.map((link, index) => (
                 <a
                   key={link.href}
-                  className="link-chip"
+                  className={`link-chip chip-${MARK_TONES[index % 3]}`}
                   href={link.href}
                   target="_blank"
                   rel="noreferrer"
@@ -68,8 +138,18 @@ export default function App() {
       <main>
         <section className="section" id="experience">
           <div className="section-head">
-            <h2>Experience</h2>
-            <p>Shipping platforms under real production load.</p>
+            <h2>
+              <Mark tone="yellow" tilt={-1}>
+                Experience
+              </Mark>
+            </h2>
+            <p>
+              Shipping platforms under{' '}
+              <Mark tone="coral" tilt={1}>
+                real production load
+              </Mark>
+              .
+            </p>
           </div>
 
           <div className="stack">
@@ -83,14 +163,24 @@ export default function App() {
                 <div className="block-body">
                   <div className="block-meta">
                     <div>
-                      <h3>{job.company}</h3>
-                      <p className="meta-role">{job.role}</p>
+                      <h3>
+                        <Mark tone="ink" tilt={-1}>
+                          {job.company}
+                        </Mark>
+                      </h3>
+                      <p className="meta-role">
+                        <Mark tone="violet" tilt={1}>
+                          {job.role}
+                        </Mark>
+                      </p>
                     </div>
                     <Stamp className="stamp-white">{job.period}</Stamp>
                   </div>
                   <ul>
-                    {job.points.map((point) => (
-                      <li key={point}>{point}</li>
+                    {job.points.map((point, pointIndex) => (
+                      <li key={point}>
+                        <RichText text={point} start={pointIndex * 3} />
+                      </li>
                     ))}
                   </ul>
                 </div>
@@ -101,8 +191,23 @@ export default function App() {
 
         <section className="section" id="projects">
           <div className="section-head">
-            <h2>Projects</h2>
-            <p>Side builds focused on search, data, and money flows.</p>
+            <h2>
+              <Mark tone="lime" tilt={1}>
+                Projects
+              </Mark>
+            </h2>
+            <p>
+              Side builds focused on{' '}
+              <Mark tone="cyan">search</Mark>,{' '}
+              <Mark tone="pink" tilt={-1}>
+                data
+              </Mark>
+              , and{' '}
+              <Mark tone="orange" tilt={2}>
+                money flows
+              </Mark>
+              .
+            </p>
           </div>
 
           <div className="project-grid">
@@ -113,10 +218,16 @@ export default function App() {
                 style={{ '--block-accent': project.accent }}
               >
                 <div className="project-top">
-                  <h3>{project.name}</h3>
+                  <h3>
+                    <Mark tone="mint" tilt={-1}>
+                      {project.name}
+                    </Mark>
+                  </h3>
                   <Stamp className="stamp-ink">{project.period}</Stamp>
                 </div>
-                <p>{project.description}</p>
+                <p>
+                  <RichText text={project.description} />
+                </p>
               </article>
             ))}
           </div>
@@ -125,13 +236,21 @@ export default function App() {
         <section className="section split" id="creds">
           <div>
             <div className="section-head">
-              <h2>Certifications</h2>
-              <p>Current credentials.</p>
+              <h2>
+                <Mark tone="sky" tilt={-2}>
+                  Certifications
+                </Mark>
+              </h2>
+              <p>
+                <Mark tone="yellow">Current credentials.</Mark>
+              </p>
             </div>
             <ul className="cred-list">
               {certifications.map((cert) => (
                 <li key={cert.name}>
-                  <span>{cert.name}</span>
+                  <span>
+                    <RichText text={cert.name} />
+                  </span>
                   <Stamp className="stamp-cyan">{cert.year}</Stamp>
                 </li>
               ))}
@@ -140,28 +259,58 @@ export default function App() {
 
           <div>
             <div className="section-head">
-              <h2>Education</h2>
-              <p>Foundation in software engineering.</p>
+              <h2>
+                <Mark tone="punch" tilt={1}>
+                  Education
+                </Mark>
+              </h2>
+              <p>
+                Foundation in{' '}
+                <Mark tone="violet">software engineering</Mark>.
+              </p>
             </div>
             <div className="edu">
-              <h3>{education.school}</h3>
+              <h3>
+                <Mark tone="coral" tilt={-1}>
+                  {education.school}
+                </Mark>
+              </h3>
               <Stamp className="stamp-coral">{education.period}</Stamp>
-              <p>{education.degree}</p>
+              <p>
+                <RichText text={education.degree} />
+              </p>
             </div>
           </div>
         </section>
 
         <section className="section" id="stack">
           <div className="section-head">
-            <h2>Technical</h2>
-            <p>Tools I use to design, ship, and operate systems.</p>
+            <h2>
+              <Mark tone="orange" tilt={-1}>
+                Technical
+              </Mark>
+            </h2>
+            <p>
+              Tools I use to{' '}
+              <Mark tone="lime">design</Mark>,{' '}
+              <Mark tone="cyan" tilt={1}>
+                ship
+              </Mark>
+              , and{' '}
+              <Mark tone="pink" tilt={-2}>
+                operate
+              </Mark>{' '}
+              systems.
+            </p>
           </div>
 
           <div className="tech-grid">
-            {technical.map((group) => (
+            {technical.map((group, groupIndex) => (
               <div key={group.label} className="tech">
                 <h3>{group.label}</h3>
-                <p>{group.items}</p>
+                <p>
+                  <RichText text={group.items} start={groupIndex * 2} />
+                </p>
               </div>
             ))}
           </div>
@@ -170,7 +319,8 @@ export default function App() {
 
       <footer className="footer">
         <p>
-          © {new Date().getFullYear()} {profile.name}
+          © {new Date().getFullYear()}{' '}
+          <Mark tone="yellow">{profile.name}</Mark>
         </p>
         <a href={`mailto:${profile.email}`}>{profile.email}</a>
       </footer>

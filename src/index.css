@@ -6,6 +6,11 @@
   --cyan: #3fd0d9;
   --lime: #a8ef45;
   --pink: #ff7ec8;
+  --violet: #b59cff;
+  --orange: #ff9f1c;
+  --mint: #5dffb1;
+  --sky: #7ec8ff;
+  --punch: #ff4d6d;
   --white: #ffffff;
   --shadow: 6px 6px 0 var(--ink);
   --shadow-sm: 4px 4px 0 var(--ink);
@@ -127,12 +132,30 @@ main,
 }
 
 .brand {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem 0.55rem;
+  max-width: 12ch;
+  line-height: 1;
+}
+
+.brand-word {
   font-family: var(--font-display);
-  font-size: clamp(2.8rem, 9vw, 5.4rem);
-  line-height: 0.92;
+  font-size: clamp(2.5rem, 8.5vw, 5rem);
+  line-height: 0.95;
   letter-spacing: -0.03em;
   text-transform: uppercase;
-  max-width: 9ch;
+  padding: 0.12em 0.22em !important;
+  box-shadow: 5px 5px 0 var(--ink) !important;
+  border-width: 3px !important;
+}
+
+.brand-word:nth-child(2) {
+  transform: rotate(1.5deg);
+}
+
+.brand-word:nth-child(3) {
+  transform: rotate(-1.25deg);
 }
 
 .role {
@@ -147,10 +170,101 @@ main,
 }
 
 .tagline {
-  max-width: 36ch;
+  max-width: 42ch;
   font-size: clamp(1rem, 2.2vw, 1.15rem);
-  line-height: 1.45;
+  line-height: 1.7;
   font-weight: 500;
+}
+
+.mark {
+  display: inline-block;
+  font-weight: 800;
+  padding: 0.08em 0.28em;
+  border: 2px solid var(--ink);
+  border-radius: 3px;
+  box-shadow: 2px 2px 0 var(--ink);
+  line-height: 1.25;
+  white-space: normal;
+  vertical-align: baseline;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
+}
+
+.mark:hover {
+  transform: translate(-1px, -1px) rotate(0deg) !important;
+  box-shadow: 3px 3px 0 var(--ink);
+}
+
+.mark-yellow {
+  background: var(--yellow);
+}
+.mark-coral {
+  background: var(--coral);
+  color: var(--white);
+}
+.mark-cyan {
+  background: var(--cyan);
+}
+.mark-lime {
+  background: var(--lime);
+}
+.mark-pink {
+  background: var(--pink);
+}
+.mark-violet {
+  background: var(--violet);
+}
+.mark-orange {
+  background: var(--orange);
+}
+.mark-mint {
+  background: var(--mint);
+}
+.mark-sky {
+  background: var(--sky);
+}
+.mark-punch {
+  background: var(--punch);
+  color: var(--white);
+}
+.mark-ink {
+  background: var(--ink);
+  color: var(--yellow);
+}
+
+.tilt--2 {
+  transform: rotate(-2deg);
+}
+.tilt--1 {
+  transform: rotate(-1deg);
+}
+.tilt-0 {
+  transform: none;
+}
+.tilt-1 {
+  transform: rotate(1deg);
+}
+.tilt-2 {
+  transform: rotate(2deg);
+}
+
+.block-body li,
+.project p,
+.tech p,
+.edu p,
+.cred-list li span {
+  line-height: 1.75;
+}
+
+.block-body .mark,
+.project .mark,
+.tech .mark,
+.edu .mark,
+.cred-list .mark,
+.tagline .mark,
+.section-head .mark {
+  font-size: 0.95em;
 }
 
 .cta-row,
@@ -210,6 +324,17 @@ main,
   font-size: 0.92rem;
   box-shadow: 3px 3px 0 var(--ink);
   transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.chip-yellow {
+  background: var(--yellow);
+}
+.chip-coral {
+  background: var(--coral);
+  color: var(--white);
+}
+.chip-cyan {
+  background: var(--cyan);
 }
 
 .hero-mark {
@@ -303,11 +428,22 @@ main,
   font-size: clamp(1.8rem, 5vw, 2.6rem);
   text-transform: uppercase;
   letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+
+.section-head h2 .mark {
+  font-family: var(--font-display);
+  font-size: inherit;
+  font-weight: 400;
+  padding: 0.12em 0.28em;
+  box-shadow: 4px 4px 0 var(--ink);
+  border-width: 3px;
 }
 
 .section-head p {
   font-weight: 500;
-  max-width: 42ch;
+  max-width: 48ch;
+  line-height: 1.7;
 }
 
 .stack {
@@ -349,11 +485,27 @@ main,
   font-size: clamp(1.25rem, 3vw, 1.6rem);
   text-transform: uppercase;
   letter-spacing: -0.02em;
+  line-height: 1.25;
+}
+
+.block-meta h3 .mark,
+.project h3 .mark,
+.edu h3 .mark {
+  font-family: var(--font-display);
+  font-size: inherit;
+  font-weight: 400;
+  padding: 0.1em 0.24em;
+  box-shadow: 3px 3px 0 var(--ink);
+  border-width: 3px;
 }
 
 .meta-role {
-  margin-top: 0.2rem;
+  margin-top: 0.45rem;
   font-weight: 700;
+}
+
+.meta-role .mark {
+  font-size: 0.95rem;
 }
 
 .stamp {
@@ -419,8 +571,11 @@ main,
 .tech p,
 .edu p,
 .cred-list li span {
-  line-height: 1.45;
   font-weight: 500;
+}
+
+.footer .mark {
+  color: var(--ink);
 }
 
 .split {
@@ -533,6 +688,10 @@ main,
 
   .brand {
     max-width: none;
+  }
+
+  .brand-word {
+    font-size: clamp(2.2rem, 12vw, 3.4rem);
   }
 
   .cred-list li {
