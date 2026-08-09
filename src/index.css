@@ -132,30 +132,12 @@ main,
 }
 
 .brand {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.35rem 0.55rem;
-  max-width: 12ch;
-  line-height: 1;
-}
-
-.brand-word {
   font-family: var(--font-display);
-  font-size: clamp(2.5rem, 8.5vw, 5rem);
-  line-height: 0.95;
+  font-size: clamp(2.8rem, 9vw, 5.4rem);
+  line-height: 0.92;
   letter-spacing: -0.03em;
   text-transform: uppercase;
-  padding: 0.12em 0.22em !important;
-  box-shadow: 5px 5px 0 var(--ink) !important;
-  border-width: 3px !important;
-}
-
-.brand-word:nth-child(2) {
-  transform: rotate(1.5deg);
-}
-
-.brand-word:nth-child(3) {
-  transform: rotate(-1.25deg);
+  max-width: 9ch;
 }
 
 .role {
@@ -170,9 +152,9 @@ main,
 }
 
 .tagline {
-  max-width: 42ch;
+  max-width: 36ch;
   font-size: clamp(1rem, 2.2vw, 1.15rem);
-  line-height: 1.7;
+  line-height: 1.45;
   font-weight: 500;
 }
 
@@ -336,6 +318,28 @@ main,
 .chip-cyan {
   background: var(--cyan);
 }
+.chip-lime {
+  background: var(--lime);
+}
+.chip-pink {
+  background: var(--pink);
+}
+.chip-violet {
+  background: var(--violet);
+}
+.chip-orange {
+  background: var(--orange);
+}
+.chip-mint {
+  background: var(--mint);
+}
+.chip-sky {
+  background: var(--sky);
+}
+.chip-punch {
+  background: var(--punch);
+  color: var(--white);
+}
 
 .hero-mark {
   background:
@@ -353,7 +357,7 @@ main,
 }
 
 .monogram {
-  width: min(78%, 280px);
+  width: min(88%, 300px);
   aspect-ratio: 1;
   background: var(--yellow);
   border: 4px solid var(--ink);
@@ -361,14 +365,13 @@ main,
   display: grid;
   place-items: center;
   font-family: var(--font-display);
-  font-size: clamp(3.5rem, 10vw, 6rem);
-  line-height: 0.85;
+  font-size: clamp(1.7rem, 5.5vw, 2.75rem);
+  line-height: 1;
+  letter-spacing: -0.04em;
   text-align: center;
+  text-transform: lowercase;
+  padding: 1rem;
   animation: pop 0.7s cubic-bezier(0.2, 0.9, 0.2, 1.2) 0.15s both;
-}
-
-.monogram span {
-  display: block;
 }
 
 .mark-bars {
@@ -428,22 +431,11 @@ main,
   font-size: clamp(1.8rem, 5vw, 2.6rem);
   text-transform: uppercase;
   letter-spacing: -0.02em;
-  line-height: 1.2;
-}
-
-.section-head h2 .mark {
-  font-family: var(--font-display);
-  font-size: inherit;
-  font-weight: 400;
-  padding: 0.12em 0.28em;
-  box-shadow: 4px 4px 0 var(--ink);
-  border-width: 3px;
 }
 
 .section-head p {
   font-weight: 500;
-  max-width: 48ch;
-  line-height: 1.7;
+  max-width: 42ch;
 }
 
 .stack {
@@ -485,7 +477,7 @@ main,
   font-size: clamp(1.25rem, 3vw, 1.6rem);
   text-transform: uppercase;
   letter-spacing: -0.02em;
-  line-height: 1.25;
+  line-height: 1.35;
 }
 
 .block-meta h3 .mark,
@@ -500,12 +492,8 @@ main,
 }
 
 .meta-role {
-  margin-top: 0.45rem;
+  margin-top: 0.35rem;
   font-weight: 700;
-}
-
-.meta-role .mark {
-  font-size: 0.95rem;
 }
 
 .stamp {
@@ -571,11 +559,8 @@ main,
 .tech p,
 .edu p,
 .cred-list li span {
+  line-height: 1.55;
   font-weight: 500;
-}
-
-.footer .mark {
-  color: var(--ink);
 }
 
 .split {
@@ -621,6 +606,211 @@ main,
   display: inline-block;
   padding: 0.2rem 0.45rem;
   border: 2px solid var(--ink);
+}
+
+.steam-panel {
+  display: grid;
+  gap: 1rem;
+}
+
+.steam-profile {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 1rem;
+  align-items: center;
+  border: var(--border);
+  background: var(--white);
+  box-shadow: var(--shadow);
+  padding: 1rem;
+}
+
+.steam-avatar {
+  width: 96px;
+  height: 96px;
+  object-fit: cover;
+  border: 3px solid var(--ink);
+  box-shadow: var(--shadow-sm);
+  background: var(--yellow);
+}
+
+.steam-profile-copy {
+  display: grid;
+  gap: 0.55rem;
+}
+
+.steam-profile-copy h3 {
+  font-family: var(--font-display);
+  font-size: clamp(1.35rem, 3vw, 1.8rem);
+  text-transform: uppercase;
+}
+
+.steam-meta {
+  font-weight: 600;
+}
+
+.steam-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+}
+
+.steam-games {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.steam-game {
+  display: grid;
+  gap: 0.75rem;
+  align-content: start;
+  text-decoration: none;
+  border: var(--border);
+  background: var(--white);
+  box-shadow: var(--shadow-sm);
+  border-top: 10px solid var(--block-accent, var(--cyan));
+  padding: 0.75rem;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.steam-game:hover,
+.steam-game:focus-visible {
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0 var(--ink);
+}
+
+.steam-game img {
+  width: 100%;
+  height: auto;
+  border: 2px solid var(--ink);
+  background: var(--ink);
+}
+
+.steam-game h3 {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  margin-bottom: 0.35rem;
+}
+
+.steam-game p,
+.steam-note {
+  font-weight: 500;
+  line-height: 1.45;
+}
+
+.steam-note {
+  border: var(--border);
+  background: var(--yellow);
+  box-shadow: var(--shadow-sm);
+  padding: 0.85rem 1rem;
+}
+
+.steam-note a {
+  font-weight: 800;
+  text-decoration: underline;
+}
+
+.spotify-panel {
+  display: grid;
+  gap: 1rem;
+}
+
+.spotify-top {
+  display: grid;
+  grid-template-columns: 1fr 1.15fr;
+  gap: 1rem;
+  align-items: stretch;
+}
+
+.spotify-profile {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 1rem;
+  align-items: start;
+  border: var(--border);
+  background: var(--white);
+  box-shadow: var(--shadow);
+  padding: 1rem;
+}
+
+.spotify-avatar {
+  width: 96px;
+  height: 96px;
+  object-fit: cover;
+  border: 3px solid var(--ink);
+  box-shadow: var(--shadow-sm);
+  background: var(--lime);
+}
+
+.spotify-profile-copy {
+  display: grid;
+  gap: 0.7rem;
+  align-content: start;
+}
+
+.spotify-profile-copy h3 {
+  font-family: var(--font-display);
+  font-size: clamp(1.35rem, 3vw, 1.8rem);
+  text-transform: uppercase;
+}
+
+.genre-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+
+.spotify-embed-wrap {
+  border: var(--border);
+  background: var(--white);
+  box-shadow: var(--shadow);
+  padding: 0.85rem;
+  display: grid;
+  gap: 0.75rem;
+}
+
+.spotify-embed-label {
+  font-weight: 600;
+  line-height: 1.45;
+}
+
+.spotify-embed {
+  width: 100%;
+  min-height: 352px;
+  border: 3px solid var(--ink);
+  border-radius: 0;
+}
+
+.spotify-playlists {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+
+.spotify-playlist {
+  text-decoration: none;
+  border: var(--border);
+  background: var(--white);
+  box-shadow: var(--shadow-sm);
+  border-top: 10px solid var(--block-accent, var(--lime));
+  padding: 0.85rem;
+  display: grid;
+  gap: 0.55rem;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.spotify-playlist:hover,
+.spotify-playlist:focus-visible {
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0 var(--ink);
+}
+
+.spotify-playlist h3 {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  text-transform: uppercase;
+  line-height: 1.25;
 }
 
 .footer {
@@ -673,6 +863,9 @@ main,
   .hero-grid,
   .project-grid,
   .tech-grid,
+  .steam-games,
+  .spotify-top,
+  .spotify-playlists,
   .split {
     grid-template-columns: 1fr;
   }
@@ -690,8 +883,8 @@ main,
     max-width: none;
   }
 
-  .brand-word {
-    font-size: clamp(2.2rem, 12vw, 3.4rem);
+  .steam-game {
+    grid-template-columns: 1fr;
   }
 
   .cred-list li {
@@ -712,9 +905,21 @@ main,
   .tech,
   .edu,
   .cred-list li,
+  .steam-profile,
+  .steam-game,
+  .steam-note,
+  .spotify-profile,
+  .spotify-embed-wrap,
+  .spotify-playlist,
   .footer {
     padding-left: 0.85rem;
     padding-right: 0.85rem;
+  }
+
+  .steam-profile,
+  .spotify-profile {
+    grid-template-columns: 1fr;
+    justify-items: start;
   }
 
   .btn,
@@ -723,7 +928,8 @@ main,
   }
 
   .cta-row,
-  .link-row {
+  .link-row,
+  .steam-actions {
     flex-direction: column;
   }
 
